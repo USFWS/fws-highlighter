@@ -2,6 +2,8 @@
 
 A front-end module that takes in a list of terms and a CSS Selector or DOM node to search.  The module searches the content for any of the terms provided, wraps them in an customizable HTML element and CSS class.  This code was adapted from a [jQuery plugin by knownasilya](https://github.com/knownasilya/jquery-highlight), which carries an MIT license.
 
+This module does not apply any styles by default, only sets up elements classes to help the end user set up highlighter styles.
+
 ## Usage
 
 This module was designed to be used with [browserify](http://browserify.org).
@@ -14,20 +16,54 @@ This module was designed to be used with [browserify](http://browserify.org).
 
   highlighter.init({
     content: document.querySelector('#content'),
-    words: ['beep', 'bop', 'boop']
+    words: ['highlighter', 'processed']
   });
 
 })();
 ```
 
+### Before
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="content">
+      <p>Here's some text will be processed by the highlighter.</p>
+    </div
+  </body>
+</html>
+```
+
+### After
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="content">
+      <p>Here's some text that will be <span class="highlight">processed</span> by the <span class="highlight">highlighter</span>.</p>
+    </div
+  </body>
+</html>
+```
+
+### Example CSS
+```CSS
+.highlight {
+  border-bottom: 1px solid #bbb;
+  cursor: help; // Pointer turns into a question mark on hover
+}
+```
+
 ## Options
 
-**class:** The class used on the element that wraps each found word default: `highlight`
-**tag:** The element used to wrap each found word.  You'll likely want to keep this as an [inline element](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements). default: `span`
-**skipTags:** HTML tags that should be ignored. default: `new RegExp("^(?:|H1|H2|H3|H4|H5|H6|SCRIPT|FORM|STYLE)$")`
-**caseSensitive:** Should the matches be case sensitive? default: `false`
-**wordsOnly:** If you want to highlight partial sections of a word, e.g. `cat` from `category` default: `false`
-**wordsBoundary:** If wordsOnly is `true` this is used to determine the boundary between words default: `\\b`
+- **class:** The class used on the element that wraps each found word default: `highlight`
+- **tag:** The element used to wrap each found word.  You'll likely want to keep this as an [inline element](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements). - default: `span`
+- **skipTags:** HTML tags that should be ignored. default: `new RegExp("^(?:|H1|H2|H3|H4|H5|H6|SCRIPT|FORM|STYLE)$")`
+- **caseSensitive:** Should the matches be case sensitive? default: `false`
+- **wordsOnly:** If you want to highlight partial sections of a word, e.g. `cat` from `category` default: `false`
+- **wordsBoundary:** If wordsOnly is `true` this is used to determine the boundary between words default: `\\b`
 
 ## License
 
