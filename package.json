@@ -1,6 +1,6 @@
 {
   "name": "fws-highlighter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A front-end module that takes in an array of terms and a CSS Selector/DOM node and wraps the found words in an element with a class.",
   "main": "index.js",
   "scripts": {
