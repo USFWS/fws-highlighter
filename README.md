@@ -58,12 +58,13 @@ This module was designed to be used with [browserify](http://browserify.org).
 
 ## Options
 
-- **class:** The class used on the element that wraps each found word default: `highlight`
-- **tag:** The element used to wrap each found word.  You'll likely want to keep this as an [inline element](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements). - default: `span`
-- **skipTags:** HTML tags that should be ignored. default: `new RegExp("^(?:|H1|H2|H3|H4|H5|H6|SCRIPT|FORM|STYLE)$")`
-- **caseSensitive:** Should the matches be case sensitive? default: `false`
-- **wordsOnly:** If you want to highlight partial sections of a word, e.g. `cat` from `category` default: `false`
-- **wordsBoundary:** If wordsOnly is `true` this is used to determine the boundary between words default: `\\b`
+- **content:** (CSS Selector/DOM node) The content to be searched for terms. default: `document.body`
+- **class:** (String) The class used on the element that wraps each found word default: `highlight`
+- **tag:** (String: HTML element)The element used to wrap each found word.  You'll likely want to keep this as an [inline element](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements). - default: `span`
+- **skipTags:** (Regex) HTML tags that should be ignored. default: `new RegExp("^(?:|H1|H2|H3|H4|H5|H6|SCRIPT|FORM|STYLE)$")`
+- **caseSensitive:** (Boolean) Should the matches be case sensitive? default: `false`
+- **wordsOnly:** (Boolean) If you want to highlight partial sections of a word, e.g. `cat` from `category` default: `false`
+- **wordsBoundary:** (Regex) If wordsOnly is `true` this is used to determine the boundary between words default: `\\b`
 
 ## License
 
