@@ -16,7 +16,7 @@
     content: document.body,
     class: 'highlight',
     tag: 'span',
-    skipTags: new RegExp("^(?:|H1|H2|H3|H4|H5|H6|SCRIPT|FORM|STYLE)$"),
+    skipTags: /(a|h1|h2|h3|h4|h5|h6|script|form|style)/i,
     caseSensitive: false,
     wordsOnly: false,
     wordsBoundary: '\\b'
@@ -71,7 +71,7 @@
         return 1; //skip added node in parent
       }
     } else if ( (node.nodeType === 1 && node.childNodes) && // only element nodes that have children
-      !/(script|style|form)/i.test(node.tagName) && // ignore script, style, and form nodes
+      !options.skipTags.test(node.tagName) && // ignore script, style, and form nodes
       !(node.tagName === nodeName.toUpperCase() && node.className === options.class)) { // skip if already highlighted
       for (var i = 0; i < node.childNodes.length; i++) {
         i += highlight(node.childNodes[i], re, nodeName, className);
